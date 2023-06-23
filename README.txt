@@ -8,11 +8,11 @@ Cons:
     Might produce wrong result
 
 How it works:
-    It has std::vector<bool> that stores if the word was encountered. Index is a key - in this case the key is hashed string.
-    The value True/False represents if it was already found in the file. Because of the std::vector<bool> is a template
-    spezialized - so there is big storage optimization(read docs). So we use murmur hash that returns uint32_t(max 0xffffffff)
-    In the end we count how many True values the vector of result has - and thats our RESULT of how many unique words we have
-    in our file.
+    The algorithm utilizes std::vector<bool> to keep track of whether a word has been encountered. The index acts as a key, which in this case is a hashed string. 
+    The value, True/False, represents whether the word has already been found in the file. Since std::vector<bool> is a template specialization, there is significant storage optimization (refer to the documentation for more details). 
+    The algorithm employs MurmurHash, which returns a uint32_t (with a maximum value of 0xFFFFFFFF), to hash the strings. 
+    In the end, the algorithm counts how many True values are in the vector, and this count represents the number of unique words in the file.
+
 
 Required packages:
 1. libmumurhash-dev
